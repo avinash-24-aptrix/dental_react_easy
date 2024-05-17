@@ -1,6 +1,18 @@
 import React from 'react';
+import { useRef } from 'react';
 
 const LoginPage = () => {
+
+    const emailRef = useRef();
+    const passRef = useRef();
+
+    const submitData = (e) => {
+        e.preventDefault();
+        const emailData = emailRef.current.value;
+        const passData = passRef.current.value;
+        console.log(emailData, passData);
+    }
+
     return (
         <>
             <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
@@ -12,14 +24,14 @@ const LoginPage = () => {
                     </a>
                 </div>
                 <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                    <form>
+                    <form method='post' onSubmit={submitData}>
                         <div>
                             <label htmlFor="email" className="block font-medium text-sm text-gray-700">Email</label>
-                            <input id="email" name="email" autoComplete="username" type="email" className=" border-[1px] border-gray-300 focus:border-red-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block p-2 w-full" value="" />
+                            <input ref={emailRef} id="email" name="email" type="email" className=" border-[1px] border-gray-300 focus:border-red-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block p-2 w-full" />
                         </div>
                         <div className="mt-4">
                             <label htmlFor="password" className="block font-medium text-sm text-gray-700">Password</label>
-                            <input id="email" name="email" autocomplete="username" type="email" class="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" value="" />
+                            <input ref={passRef} id="password" name="email" type="password" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" />
                         </div>
                         <div className="block mt-4">
                             <label className="flex items-center">
@@ -29,7 +41,7 @@ const LoginPage = () => {
                         </div>
                         <div className="flex items-center justify-end mt-4">
                             <a className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="http://127.0.0.1:8000/forgot-password">Forgot your password?</a>
-                            <button className="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 false ms-4">Log in</button>
+                            <button type='submit' className="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 false ms-4">Log in</button>
                         </div>
                     </form>
                 </div>
