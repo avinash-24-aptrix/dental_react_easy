@@ -1,6 +1,20 @@
 import React from 'react'
+import { useRef } from 'react';
 
 const RegistrationPage = () => {
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const passRef = useRef();
+    const confirmPassRef = useRef();
+
+    const submitData = (e) => {
+        e.preventDefault();
+        const nameData = nameRef.current.value;
+        const emailData = emailRef.current.value;
+        const passData = passRef.current.value;
+        const confirmPassData = confirmPassRef.current.value;
+        console.log(nameData, emailData, passData, confirmPassData);
+    }
     return (
         <>
             <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
@@ -12,22 +26,22 @@ const RegistrationPage = () => {
                     </a>
                 </div>
                 <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                    <form>
+                    <form method='post' onSubmit={submitData}>
                         <div>
                             <label htmlFor="name" className="block font-medium text-sm text-gray-700">Name</label>
-                            <input id="name" name="name" autoComplete="name" required type="text" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" value="" />
+                            <input ref={nameRef} id="name" name="name" autoComplete="name" required type="text" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" />
                         </div>
                         <div className="mt-4">
                             <label htmlFor="email" className="block font-medium text-sm text-gray-700">Email</label>
-                            <input id="email" name="email" autoComplete="username" required type="email" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" value="" />
+                            <input ref={emailRef} id="email" name="email" autoComplete="username" required type="email" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" />
                         </div>
                         <div className="mt-4">
                             <label htmlFor="password" className="block font-medium text-sm text-gray-700">Password</label>
-                            <input id="password" name="password" autoComplete="new-password" required type="password" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" value="" />
+                            <input ref={passRef} id="password" name="password" autoComplete="new-password" required type="password" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" />
                         </div>
                         <div className="mt-4">
                             <label htmlFor="password_confirmation" className="block font-medium text-sm text-gray-700">Confirm Password</label>
-                            <input id="password_confirmation" name="password_confirmation" autoComplete="new-password" required type="password" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" value="" />
+                            <input ref={confirmPassRef} id="password_confirmation" name="password_confirmation" autoComplete="new-password" required type="password" className="border-[1px] border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2" />
                         </div>
                         <div className="flex items-center justify-end mt-4">
                             <a className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="http://127.0.0.1:8000/login">Already registered?</a>
