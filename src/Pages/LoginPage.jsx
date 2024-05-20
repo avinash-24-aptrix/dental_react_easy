@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import ApplicationLogo from './Components/ApplicationLogo';
-import Button from './Components/Button';
-import TextInput from './Components/TextInput';
-import LabelForInput from './Components/LabelForInput';
+import ApplicationLogo from '../Components/ApplicationLogo';
+import Button from '../Components/Button';
+import TextInput from '../Components/TextInput';
+import LabelForInput from '../Components/LabelForInput';
 
 const LoginPage = () => {
     const emailRef = useRef();
@@ -43,7 +43,7 @@ const LoginPage = () => {
                                 Forgot your password?
                             </a>
 
-                            <Button variant="primary">Log in</Button>
+                            <Button variant="">Log in</Button>
                         </div>
                     </form>
                 </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useRef } from 'react';
-import ApplicationLogo from './ApplicationLogo';
-import Button from './Button';
-import TextInput from './TextInput';
-import LabelForInput from './LabelForInput';
+import ApplicationLogo from '../Components/ApplicationLogo';
+import Button from '../Components/Button';
+import TextInput from '../Components/TextInput';
+import LabelForInput from '../Components/LabelForInput';
 
 const RegistrationPage = () => {
     const nameRef = useRef();
@@ -47,7 +47,7 @@ const RegistrationPage = () => {
                         </div>
                         <div className="flex items-center justify-end mt-4">
                             <a className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="http://127.0.0.1:8000/login">Already registered?</a>
-                            <Button>Register</Button>
+                            <Button variant="">Register</Button>
                         </div>
                     </form>
                 </div>

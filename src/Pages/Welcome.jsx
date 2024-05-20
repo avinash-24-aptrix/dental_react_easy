@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ApplicationLogo from './Components/ApplicationLogo';
+import ApplicationLogo from '../Components/ApplicationLogo';
 
 const Welcome = () => {
     return (
