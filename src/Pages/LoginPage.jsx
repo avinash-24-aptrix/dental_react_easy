@@ -3,6 +3,7 @@ import ApplicationLogo from '../Components/ApplicationLogo';
 import Button from '../Components/Button';
 import TextInput from '../Components/TextInput';
 import LabelForInput from '../Components/LabelForInput';
+import Section from '../Components/StyledComponents/Section';
 
 const LoginPage = () => {
     const emailRef = useRef();
@@ -18,6 +19,8 @@ const LoginPage = () => {
 
     return (
         <>
+        <Section />
+        
             <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
                 <div>
                     <ApplicationLogo className='text-gray-600' />
@@ -43,7 +46,7 @@ const LoginPage = () => {
                                 Forgot your password?
                             </a>
 
-                            <Button variant="">Log in</Button>
+                            <Button role="delete" className="px-8 py-4">Log in</Button>
                         </div>
                     </form>
                 </div>
