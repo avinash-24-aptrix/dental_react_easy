@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import ApplicationLogo from './ApplicationLogo';
 import Button from './Button';
 import TextInput from './TextInput';
+import LabelForInput from './LabelForInput';
 
 const RegistrationPage = () => {
     const nameRef = useRef();
@@ -29,19 +30,19 @@ const RegistrationPage = () => {
                 <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                     <form method='post' onSubmit={submitData}>
                         <div>
-                            <label htmlFor="name" className="block font-medium text-sm text-gray-700">Name</label>
+                            <LabelForInput>Name</LabelForInput>
                             <TextInput ref={nameRef} />
                         </div>
                         <div className="mt-4">
-                            <label htmlFor="email" className="block font-medium text-sm text-gray-700">Email</label>
+                            <LabelForInput>Email</LabelForInput>
                             <TextInput ref={emailRef} type="email" />
                         </div>
                         <div className="mt-4">
-                            <label htmlFor="password" className="block font-medium text-sm text-gray-700">Password</label>
+                            <LabelForInput>Password</LabelForInput>
                             <TextInput ref={passRef} type="password" />
                         </div>
                         <div className="mt-4">
-                            <label htmlFor="password_confirmation" className="block font-medium text-sm text-gray-700">Confirm Password</label>
+                            <LabelForInput>Confirm Password</LabelForInput>
                             <TextInput ref={confirmPassRef} type="password" />
                         </div>
                         <div className="flex items-center justify-end mt-4">

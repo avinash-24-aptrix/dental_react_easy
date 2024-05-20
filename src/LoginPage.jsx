@@ -1,21 +1,20 @@
-import React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import ApplicationLogo from './Components/ApplicationLogo';
 import Button from './Components/Button';
 import TextInput from './Components/TextInput';
-
+import LabelForInput from './Components/LabelForInput';
 
 const LoginPage = () => {
-
     const emailRef = useRef();
     const passRef = useRef();
-
     const submitData = (e) => {
         e.preventDefault();
         const emailData = emailRef.current.value;
         const passData = passRef.current.value;
         console.log(emailData, passData);
     }
+
+
 
     return (
         <>
@@ -26,13 +25,12 @@ const LoginPage = () => {
                 <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                     <form method='post' onSubmit={submitData}>
                         <div>
-                            <label htmlFor="email" className="block font-medium text-sm text-gray-700">Email</label>
+                            <LabelForInput>Email</LabelForInput>
                             <TextInput ref={emailRef} name="" className="" type="email" />
                         </div>
                         <div className="mt-4">
-                            <label htmlFor="password" className="block font-medium text-sm text-gray-700">Password</label>
+                            <LabelForInput>Password</LabelForInput>
                             <TextInput ref={passRef} name="" className="" type="password" />
-
                         </div>
                         <div className="block mt-4">
                             <label className="flex items-center">
@@ -45,16 +43,13 @@ const LoginPage = () => {
                                 Forgot your password?
                             </a>
 
-                            <Button className="">Log in</Button>
+                            <Button variant="primary">Log in</Button>
                         </div>
                     </form>
                 </div>
             </div>
-
-
-
         </>
     )
 }
 
-export default LoginPage
+export default LoginPage;

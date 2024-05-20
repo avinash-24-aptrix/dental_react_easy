@@ -1,8 +1,11 @@
-import React, { Children } from 'react'
+import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
-const LabelForInput = ({ htmlFor, className }) => {
+const LabelForInput = ({ className, children }) => {
     return (
-        <label htmlFor={htmlFor} className="block font-medium text-sm text-gray-700">{Children}</label>
+        <label className={twMerge("block font-medium text-sm text-gray-700", className)}>
+            {children}
+        </label>
     )
 }
 
