@@ -1,4 +1,5 @@
 import React from 'react'
+import DashboardNavigation from '../Components/DashboardNavigation'
 
 const Dashboard = () => {
     return (
@@ -15,9 +16,14 @@ const Dashboard = () => {
                                         </svg>
                                     </a>
                                 </div>
-                                <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                    <a href="http://127.0.0.1:8000/dashboard" className="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-indigo-400 text-gray-900 focus:border-indigo-700">Dashboard</a>
+                                {/* dashboard navigation */}
+                                <div className='flex items-center '>
+                                    <DashboardNavigation >Dashboard</DashboardNavigation>
+                                    <DashboardNavigation redirect='suppliers' >Suppliers</DashboardNavigation>
                                 </div>
+                                {/* <div className=" space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                    <p className="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-indigo-400 text-gray-900 focus:border-indigo-700">Suppeliers</p>
+                                </div> */}
                             </div>
                             <div className="hidden sm:flex sm:items-center sm:ms-6">
                                 <div className="ms-3 relative">
