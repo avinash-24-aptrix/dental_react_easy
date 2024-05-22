@@ -2,7 +2,20 @@ import React from 'react';
 import DashboardNavigation from '../../Components/DashboardNavigation'
 import Button from '../../Components/Button';
 
+
 const DashboardNavbar = () => {
+
+    // sending data in array
+    const navigationItems = [
+        { path: 'dashboard', label: 'Dashboard' },
+        { path: 'suppeliers', label: 'Suppliers' },
+        { path: 'department', label: 'Department' },
+        { path: 'stocks', label: 'Stocks' },
+        { path: 'transition', label: 'Transition' },
+        { path: 'slips', label: 'Slips' },
+        { path: 'invoices', label: 'Invoices' }
+    ];
+
     return (
         <div className="px-4 mx-auto max-w-7xl sm:px-6">
             <div className="relative pt-6 pb-16 sm:pb-24">
@@ -13,7 +26,7 @@ const DashboardNavbar = () => {
                     <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
                         <div className="flex items-center justify-between w-full md:w-auto">
                             <a href="#">
-                                <span className="sr-only">Company Name</span>
+                                <span className="sr-only">Comspany Name</span>
                                 <img
                                     className="w-auto h-8 sm:h-10"
                                     src="https://www.svgrepo.com/show/448244/pack.svg"
@@ -49,13 +62,12 @@ const DashboardNavbar = () => {
                         </div>
                     </div>
                     <div className="hidden md:flex md:space-x-10 list-none">
-                        <DashboardNavigation path='dashboard'>Dashboard</DashboardNavigation>
-                        <DashboardNavigation path='suppeliers'>Suppeliers</DashboardNavigation>
-                        <DashboardNavigation path='department'>Department</DashboardNavigation>
-                        <DashboardNavigation path='stocks'>Stocks</DashboardNavigation>
-                        <DashboardNavigation path='transition'>Transition</DashboardNavigation>
-                        <DashboardNavigation path='slips'>Slips</DashboardNavigation>
-                        <DashboardNavigation path='invoices'>Invoices</DashboardNavigation>
+                        {/* rendering the data and navigation both */}
+                        {navigationItems.map((item) => (
+                            <DashboardNavigation key={item.path} path={item.path}>
+                                {item.label}
+                            </DashboardNavigation>
+                        ))}
                     </div>
                     <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                         <div className="">
@@ -64,6 +76,7 @@ const DashboardNavbar = () => {
                     </div>
                 </nav>
             </div>
+
         </div>
     )
 }
