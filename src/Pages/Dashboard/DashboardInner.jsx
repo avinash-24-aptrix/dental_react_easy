@@ -1,5 +1,6 @@
 import React from 'react';
 import DashboardBox from './DashboardBox';
+import DashboardTable from './DashboardTable';
 
 const DashboardInner = () => {
 
@@ -11,16 +12,21 @@ const DashboardInner = () => {
         { name: 'Invoices', innerData: 3447 },
     ]
     return (
-        <div className="p-4 -mt-16 min-h-screen bg-gray-200">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <>
+            <div className="p-4 -mt-16  bg-gray-200">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                {/*  rendering the component with name and data */}
-                {totalDashboardBox.map((e) => (
-                    <DashboardBox name={e.name} innerData={e.innerData} />
-                ))}
+                    {/*  rendering the component with name and data */}
+                    {totalDashboardBox.map((e, index) => (
+                        <div key={index}>
+                            <DashboardBox name={e.name} innerData={e.innerData} />
+                        </div>
+                    ))}
 
+                </div>
             </div>
-        </div>
+            <DashboardTable />
+        </>
 
     )
 }

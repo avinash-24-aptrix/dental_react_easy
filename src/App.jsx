@@ -4,6 +4,7 @@ import Dashboard from './Pages/Dashboard/Dashboard'
 // import LoginPage from './Pages/LoginPage'
 import RegistrationPage from './Pages/RegistrationPage'
 import DashboardNavbar from './Pages/Dashboard/DashboardNavbar'
+import PageNotFound from './Pages/PageNotFound';
 const App = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const App = () => {
           {/* <Route exact path='/' element={<LoginPage />}></Route> */}
           {/* <Route exact path='/register' element={<RegistrationPage />}></Route> */}
           <Route  path='/:params' element={<Dashboard />}></Route>
+          <Route  path='*' element={<PageNotFound />}></Route>
         </Routes>
       </BrowserRouter>
     </>

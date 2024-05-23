@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import TableHeading from '../../Components/TableHeading';
+
 
 const DashboardTable = () => {
 
@@ -6,8 +8,16 @@ const DashboardTable = () => {
         { id: 1, productName: 'Apple', quantity: 50, category: 'Fruit' },
         { id: 2, productName: 'Banana', quantity: 30, category: 'Fruit' },
         { id: 3, productName: 'Carrot', quantity: 20, category: 'Vegetable' },
+        { id: 4, productName: 'daru', quantity: 20, category: 'Alcohol' },
+        { id: 5, productName: 'Carrot', quantity: 20, category: 'Vegetable' },
         // Add more rows as needed
     ];
+
+    // table head data dynamically
+    const tableHeadingData = [
+        "Id", "Product Name", "Quantity", "Category",
+    ];
+
 
     return (
         <div className="bg-gray-200 p-4">
@@ -19,18 +29,9 @@ const DashboardTable = () => {
                                 <table className="min-w-full divide-y divide-gray-200">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                ID
-                                            </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Product Name
-                                            </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Quantity
-                                            </th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Category
-                                            </th>
+                                            {tableHeadingData.map((e, index) => (
+                                                <TableHeading key={index}>{e}</TableHeading>
+                                            ))}
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
