@@ -12,7 +12,7 @@ const DashboardInner = () => {
   ];
   return (
     <>
-      <div className="py-4 bg-[#F3F4F6]">
+      <div className="py-4 bg-[#F3F4F6] ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px] px-[48px]">
           {/*  rendering the component with name and data */}
           {totalDashboardBox.map((e, index) => (
