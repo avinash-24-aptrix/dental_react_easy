@@ -20,13 +20,13 @@ const DashboardNavbar = () => {
     <div className="grid">
       <div className="flex ">
         {/* navbar */}
-        <nav className="flex  items-center h-[74px]  w-full">
+        <nav className="flex  items-center h-[74px] border-2  w-full">
           {/* application logo */}
           <div className="flex justify-center items-center">
             <ApplicationLogo className="text-[#1F2937] h-[36px] w-[36px] ml-[48px]" />
           </div>
           {/* navbar links */}
-          <div className="flex h-full pl-[62px] space-x-[62px]">
+          <div className="flex h-full pl-[62px]  space-x-[62px]">
             {navigationItems.map((data, index) => (
               <div
                 key={index}
