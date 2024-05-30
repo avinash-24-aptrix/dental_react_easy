@@ -4,21 +4,18 @@ import Suppelier from "../Suppelier/Suppelier";
 import DashboardInner from "./DashboardInner";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardIntro from "../../Components/DashboardIntro";
+import DashboardTable from '../Dashboard/DashboardTable';
 
 const Dashboard = () => {
   //using useparams hook to get data from URL
   const params = useParams();
   const openParameter = params.params;
-
-  // if (openParameter == "suppeliers") {
-  //   <Suppelier />;
-  // }
-
   return (
     <div>
       <DashboardNavbar />
       <DashboardIntro pageName={openParameter} />
       <DashboardInner />
+      <DashboardTable />
     </div>
   );
 };
