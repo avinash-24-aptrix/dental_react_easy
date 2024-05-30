@@ -1,14 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Suppelier = () => {
-    console.log('hello world')
-    return (
-        <>
-            <div className=' relative z-10 mt-[50px] p-[100px] bg-red-600'>
-                hello world
-            </div>
-        </>
-    )
-}
+  console.log("hello world");
+  return (
+    <>
+      <div>hello i am from suppelier</div>
+    </>
+  );
+};
 
-export default Suppelier
+export default Suppelier;
