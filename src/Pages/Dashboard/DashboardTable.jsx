@@ -1,57 +1,140 @@
-import React from 'react';
-import TableHeading from '../../Components/TableHeading';
-
+import React, { useState } from "react";
+import TableHeading from "../../Components/TableHeading";
+import { FaRegEye } from "react-icons/fa6";
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { twMerge } from "tailwind-merge";
+import DeleteConfirmation from "../../Components/DeleteConfirmation";
 
 const DashboardTable = () => {
+  const data = [
+    {
+      id: 1000,
+      company: "Tech Jungle",
+      dueDate: "14 Sep 2022",
+      status: "unpaid",
+      amount: 973,
+    },
+    {
+      id: 1002,
+      company: "Tech Jungle",
+      dueDate: "14 Sep 2022",
+      status: "paid",
+      amount: 973,
+    },
+    {
+      id: 1003,
+      company: "Tech Jungle",
+      dueDate: "14 Sep 2022",
+      status: "unpaid",
+      amount: 973,
+    },
+    {
+      id: 1004,
+      company: "Tech Jungle",
+      dueDate: "14 Sep 2022",
+      status: "unpaid",
+      amount: 973,
+    },
+    // Add more rows as needed
+  ];
 
-    const data = [
-        { id: 1, productName: 'Apple', quantity: 50, category: 'Fruit' },
-        { id: 2, productName: 'Banana', quantity: 30, category: 'Fruit' },
-        { id: 3, productName: 'Carrot', quantity: 20, category: 'Vegetable' },
-        { id: 4, productName: 'daru', quantity: 20, category: 'Alcohol' },
-        { id: 5, productName: 'Carrot', quantity: 20, category: 'Vegetable' },
-        // Add more rows as needed
-    ];
+  // table head data dynamically
+  const tableHeadingData = [
+    "Invoice",
+    "Company",
+    "Due Date",
+    "Status",
+    "Amount",
+    "Action",
+  ];
 
-    // table head data dynamically
-    const tableHeadingData = [
-        "Id", "Product Name", "Quantity", "Category",
-    ];
+  const [deleteToogle, setDeleteToogle] = useState(false);
 
-
-    return (
-        <div className="bg-gray-200 p-4">
-            <div className="container mx-auto">
-                <div className="flex flex-col">
-                    <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                            <div className="overflow-hidden shadow-md sm:rounded-lg">
-                                <table className="min-w-full divide-y divide-gray-200">
-                                    <thead className="bg-gray-50">
-                                        <tr>
-                                            {tableHeadingData.map((e, index) => (
-                                                <TableHeading key={index}>{e}</TableHeading>
-                                            ))}
-                                        </tr>
-                                    </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200">
-                                        {data.map((item) => (
-                                            <tr key={item.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.id}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.productName}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.quantity}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.category}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  const finallyDelete = () => {
+    setDeleteToogle(true);
+  };
+  return (
+    <div className="px-[48px] bg-[#F3F4F6]">
+      <div className="container  ">
+        <div className="flex flex-col">
+          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+              <div className="overflow-hidden shadow-md ">
+                <table className="min-w-full divide-y divide-gray-200 rounded-md">
+                  <thead>
+                    <tr>
+                      {tableHeadingData.map((e, index) => (
+                        <TableHeading
+                          className="bg-[#E8EBF0] rounded-md"
+                          key={index}
+                        >
+                          {e}
+                        </TableHeading>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200 rounded-md">
+                    {data.map((item) => (
+                      <tr
+                        key={item.id}
+                        className={twMerge(
+                          "text-gray-800",
+                          item.id === item.id && "hover:bg-gray-100"
+                        )}
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center">
+                          <span className="pr-2">
+                            <input type="checkbox" />
+                          </span>
+                          {item.id}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm  font-bold">
+                          {item.company}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm  ">
+                          {item.dueDate}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm  ">
+                          <span
+                            className={twMerge(
+                              " rounded-[40px] px-4 py-1.5 text-[12px] text-gray-800",
+                              item.status === "paid"
+                                ? "bg-green-100"
+                                : "bg-red-100"
+                            )}
+                          >
+                            {item.status}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm   ">
+                          $ {item.amount}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm   ">
+                          <span className="flex space-x-6 opacity-90">
+                            <FaRegEye className="text-black h-[20px] w-[20px]" />
+                            <FaEdit className="text-[#5E68C9] h-[20px] w-[20px]" />
+                            <RiDeleteBin6Line
+                              toggle={deleteToogle}
+                              onClick={finallyDelete}
+                              className="text-red-600 h-[20px] w-[20px]"
+                            />
+                            {deleteToogle && (
+                              <DeleteConfirmation deletePop={setDeleteToogle} />
+                            )}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default DashboardTable
+export default DashboardTable;
