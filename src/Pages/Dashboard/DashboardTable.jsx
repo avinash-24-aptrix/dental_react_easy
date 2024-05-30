@@ -49,7 +49,7 @@ const DashboardTable = () => {
     "Action",
   ];
 
-  const [deleteToogle, setDeleteToogle] = useState(false);
+  const [deleteToogle, setDeleteToogle] = useState("");
 
   const finallyDelete = () => {
     setDeleteToogle(true);
